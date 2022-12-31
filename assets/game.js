@@ -47,7 +47,7 @@ const generateGame = () => {
     const dimensions = selectors.board.getAttribute('data-dimension')
 
     if (dimensions % 2 !== 0) {
-        throw new Error("The dimension of the board must be an even number.")
+        throw new Error("Tahtanın boyutu cift sayı olmalıdır.")
     }
 
     const emojis = ['🥔', '🍒', '🥑', '🌽', '🥕', '🍇', '🍉', '🍌', '🥭', '🍍']
@@ -76,8 +76,8 @@ const startGame = () => {
     state.loop = setInterval(() => {
         state.totalTime++
 
-        selectors.moves.innerText = `${state.totalFlips} moves`
-        selectors.timer.innerText = `time: ${state.totalTime} sec`
+        selectors.moves.innerText = `${state.totalFlips} Hamle`
+        selectors.timer.innerText = `Zaman: ${state.totalTime} Saniye`
     }, 1000)
 }
 
@@ -120,10 +120,10 @@ const flipCard = card => {
             selectors.boardContainer.classList.add('flipped')
             selectors.win.innerHTML = `
                 <span class="win-text">
-                    You won!<br />
-                    with <span class="highlight">${state.totalFlips}</span> moves<br />
-                    under <span class="highlight">${state.totalTime}</span> seconds
-                </span>
+                    Kazandın !<br><br>
+                    <span class="highlight">${state.totalFlips}</span> Hamle<br><br>
+		    <span class="highlight">${state.totalTime}</span> Saniye
+		    </span>
             `
 
             clearInterval(state.loop)
